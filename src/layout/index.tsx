@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { NavbarSegmented } from "./navbar";
+import { FooterSocial } from "./footer";
 
 function Layout() {
   return (
@@ -7,6 +8,7 @@ function Layout() {
       {/* <TopNavbar /> */}
       <NavbarSegmented />
       <Outlet />
+      <FooterSocial />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navbar, createStyles, getStylesRef, rem } from "@mantine/core";
+import { Image, Navbar } from "@mantine/core";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -11,75 +11,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 
-const useStyles = createStyles((theme) => ({
-  navbar: {
-    backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
-  },
 
-  title: {
-    textTransform: "uppercase",
-    letterSpacing: rem(-0.25),
-  },
-
-  link: {
-    ...theme.fn.focusStyles(),
-    display: "flex",
-    alignItems: "center",
-    textDecoration: "none",
-    fontSize: theme.fontSizes.sm,
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[1]
-        : theme.colors.gray[7],
-    padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
-    borderRadius: theme.radius.sm,
-    fontWeight: 500,
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === "dark" ? theme.white : theme.black,
-
-      [`& .${getStylesRef("icon")}`]: {
-        color: theme.colorScheme === "dark" ? theme.white : theme.black,
-      },
-    },
-  },
-
-  linkIcon: {
-    ref: getStylesRef("icon"),
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[2]
-        : theme.colors.gray[6],
-    marginRight: theme.spacing.sm,
-  },
-
-  linkActive: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-      [`& .${getStylesRef("icon")}`]: {
-        color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-          .color,
-      },
-    },
-  },
-
-  footer: {
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-    paddingTop: theme.spacing.md,
-  },
-}));
 
 const tabs = {
   account: [
@@ -99,15 +31,14 @@ const socialMediaIcons = {
 };
 
 export function NavbarSegmented() {
-  const { classes, cx } = useStyles();
+  // const { classes, cx } = useStyles();
   const [section, setSection] = useState<"account">("account");
   const [active, setActive] = useState("Billing");
 
   const links = tabs[section].map((item) => (
-    <a
-      className={cx(classes.link, {
-        [classes.linkActive]: item.label === active,
-      })}
+  <div className="py-[8px] px-[16px] w-full hover:bg-gray1 ">
+      <a
+     className="flex justify-start items-center w-36 "
       href={item.link}
       key={item.label}
       onClick={(event) => {
@@ -115,11 +46,13 @@ export function NavbarSegmented() {
         setActive(item.label);
       }}
     >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <item.icon className="text-black mr-[16px]" stroke={1.5} />
       <span>{item.label}</span>
     </a>
+  </div>
   ));
-  const socialMedia = socialMediaIcons[section].map((item) => (
+  const socialMedia = <div className="flex justify-between items-center w-36 my-[16px] pl-[16px]" >
+   { socialMediaIcons[section].map((item) => (
     <a
       className="text-black"
       href={item.link}
@@ -129,12 +62,16 @@ export function NavbarSegmented() {
         setActive(item.label);
       }}
     >
-      <item.icon className="text-black" stroke={1.5} />
+      <item.icon className="text-black text-[18px] hover:text-gray"  />
     </a>
-  ));
+  ))}
+  </div>
 
   return (
-    <Navbar height={840} width={{ sm: 300 }} p="md" className={classes.navbar}>
+    <Navbar height={840} width={{ sm: 300 }} className="py-[32px] w-[20%] fixed h-full">
+     <Image style={{borderRadius:'20px'}} className="pl-[16px]" radius={4} src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="user image" width={140} height={130} />
+      <h4 className="pl-[16px] font-bold my-[10px]">PORTFOLIO</h4>
+      <p className="text-gray  pl-[16px]">Template by W3.CSS</p>
       <Navbar.Section grow mt="xl">
         {links}
         {socialMedia}
