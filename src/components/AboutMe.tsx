@@ -53,7 +53,7 @@ const AboutMe = ({}: Props): ReactElement => {
       Technical Skills
       </Text>
       <ul >
-        {technicalSkills.map((skill, index) => (
+        {technicalSkills.map((skill, ) => (
           <Progressbar title={skill.title} value={skill.value} />
         ))}
       </ul>

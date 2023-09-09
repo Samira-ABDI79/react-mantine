@@ -8,6 +8,7 @@ import {
   createStyles,
   rem,
 } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -37,20 +38,21 @@ const useStyles = createStyles((theme) => ({
 interface BadgeCardProps {
   image: string;
   title: string;
-
+link:string
   description: string;
  
 }
 
-export function BadgeCard({ image, title, description,  }: BadgeCardProps) {
+export function BadgeCard({ image, title, description,link  }: BadgeCardProps) {
   const { classes } = useStyles();
 
 
 
   return (
+   <Link to={link} >
     <Card   p="md" className={classes.card}  style={{ borderRadius:0 }}>
       <Card.Section>
-        <Image src={image} alt={title} height={180} />
+        <Image src={image} alt={title} height={400} width={400} />
       </Card.Section>
 
       <Card.Section className={classes.section} mt="md">
@@ -69,5 +71,6 @@ export function BadgeCard({ image, title, description,  }: BadgeCardProps) {
 
      
     </Card>
+   </Link>
   );
 }

@@ -69,6 +69,7 @@ export function NavbarSegmented() {
 
   return (
     <Navbar height={840} width={{ sm: 300 }} className="py-[32px] w-[20%] fixed h-full">
+
      <Image style={{borderRadius:'20px'}} className="pl-[16px]" radius={4} src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="user image" width={140} height={130} />
       <h4 className="pl-[16px] font-bold my-[10px]">PORTFOLIO</h4>
       <p className="text-gray  pl-[16px]">Samira Abdi</p>
