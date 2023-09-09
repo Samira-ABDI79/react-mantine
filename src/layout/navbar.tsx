@@ -16,7 +16,7 @@ import {
 const tabs = {
   account: [
     { link: "", label: "PORTFOLIO", icon: IconBrandWindows },
-    { link: "", label: "ABOUT", icon: IconUser },
+    { link: "#AboutMe", label: "ABOUT", icon: IconUser },
     { link: "", label: "CONTACT", icon: IconMail },
   ],
 };

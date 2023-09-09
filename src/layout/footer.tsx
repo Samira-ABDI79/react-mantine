@@ -14,8 +14,8 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: theme.spacing.xl,
-    paddingBottom: theme.spacing.xl,
+    paddingTop: '24px',
+    paddingBottom: '24px',
 
     [theme.fn.smallerThan('xs')]: {
       flexDirection: 'column',
@@ -33,8 +33,8 @@ export function FooterSocial() {
   const { classes } = useStyles();
 
   return (
-    <div className="bg-gray2 bottom-0 fixed w-full">
-      <Container className={classes.inner}>
+    <div className="bg-gray2 bottom-0   ml-[20%] p-[24px] flex items-center justify-between     ">
+      
       <p>Samira abdi</p>
         <Group spacing={0} className={classes.links} position="right" noWrap>
          
@@ -47,7 +47,7 @@ export function FooterSocial() {
             <IconBrandInstagram size="1.7rem" className=" hover:text-gray" stroke={1.5} />
    
         </Group>
-      </Container>
+     
     </div>
   );
 }

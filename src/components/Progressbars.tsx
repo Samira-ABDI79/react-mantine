@@ -2,8 +2,9 @@ import { Text } from "@mantine/core";
 
 interface PropType{
     title:string
+    value:string
 }
-export default function Progressbar({title}:PropType){
+export default function Progressbar({title,value}:PropType){
     return(
         <>
         <Text >
@@ -11,7 +12,7 @@ export default function Progressbar({title}:PropType){
         </Text>
         <div className="relative pt-1">
   <div className="overflow-hidden h-6 mb-4 text-xs flex  bg-gray3 ">
-    <div style={{ width: "30%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray2"></div>
+    <div style={{ width: value }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray2"></div>
   </div>
 </div>
         </>
