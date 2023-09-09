@@ -11,8 +11,8 @@ export default function Progressbar({title,value}:PropType){
 {title}
         </Text>
         <div className="relative pt-1">
-  <div className="overflow-hidden h-6 mb-4 text-xs flex  bg-gray3 ">
-    <div style={{ width: value }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray2"></div>
+  <div className="overflow-hidden h-12 mb-4 text-xs flex  bg-gray3 ">
+    <div style={{ width: value }} className="shadow-none flex flex-col text-[15px] text-center whitespace-nowrap text-white justify-center bg-gray2">{value}</div>
   </div>
 </div>
         </>
