@@ -14,18 +14,21 @@ import {
     IconMailFilled,
    
   } from '@tabler/icons-react';
+import { useContext } from 'react';
+import { UserContext } from '../main';
   
-  const mockdata = [
-    { title: 'samiraabdiurmi*@gmail.com', icon: IconMailFilled, color: 'violet' },
-    { title: 'Tehran', icon: IconMapPinFilled, color: 'indigo' },
-    { title: '0933918334*', icon: IconPhoneFilled, color: 'blue' },
-   
-  ];
+ 
   
   
   export function ActionsGrid() {
+    const { user } = useContext(UserContext);
  
-  
+    const mockdata = [
+      { title: user.email, icon: IconMailFilled, color: 'violet' },
+      { title: user.location, icon: IconMapPinFilled, color: 'indigo' },
+      { title: user.phoneNumber, icon: IconPhoneFilled, color: 'blue' },
+     
+    ];
     const items = mockdata.map((item) => (
       <UnstyledButton key={item.title} className={`${item.title==='Tehran'?'bg-green':'bg-gray2'} text-white flex just items-center flex-col py-[16px] `}>
         <item.icon color="#fff" size="2rem" />

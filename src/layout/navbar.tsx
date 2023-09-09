@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Image, Navbar } from "@mantine/core";
 import {
-  IconBrandFacebook,
-  IconBrandInstagram,
+ 
+  IconBrandGithub,
+
   IconBrandLinkedin,
-  IconBrandPinterest,
-  IconBrandTwitter,
+ 
   IconBrandWindows,
   IconMail,
   IconUser,
 } from "@tabler/icons-react";
+import { UserContext } from "../main";
 
 
 
@@ -20,21 +21,21 @@ const tabs = {
     { link: "", label: "CONTACT", icon: IconMail },
   ],
 };
-const socialMediaIcons = {
-  account: [
-    { link: "", label: "Facebook", icon: IconBrandFacebook },
-    { link: "", label: "Instagram", icon: IconBrandInstagram },
-    { link: "", label: "Pinterest", icon: IconBrandPinterest },
-    { link: "", label: "Twitter", icon: IconBrandTwitter },
-    { link: "", label: "Linkedin", icon: IconBrandLinkedin },
-  ],
-};
 
 export function NavbarSegmented() {
   // const { classes, cx } = useStyles();
   const [section, setSection] = useState<"account">("account");
   const [active, setActive] = useState("Billing");
-
+  const { user } = useContext(UserContext);
+  const socialMediaIcons = {
+    account: [
+    
+      { link: user.linkdin, label: "Linkedin", icon: IconBrandLinkedin },
+      { link: user.github, label: "Github", icon: IconBrandGithub },
+  
+    ],
+  };
+  
   const links = tabs[section].map((item) => (
   <div className="py-[8px] px-[16px] w-full hover:bg-gray1 ">
       <a
@@ -51,7 +52,7 @@ export function NavbarSegmented() {
     </a>
   </div>
   ));
-  const socialMedia = <div className="flex justify-between items-center w-36 my-[16px] pl-[16px]" >
+  const socialMedia = <div className="flex justify-between items-center w-16 my-[16px] pl-[16px]" >
    { socialMediaIcons[section].map((item) => (
     <a
       className="text-black"
@@ -70,9 +71,9 @@ export function NavbarSegmented() {
   return (
     <Navbar height={840} width={{ sm: 300 }} className="py-[32px] w-[20%] fixed h-full">
 
-     <Image style={{borderRadius:'20px'}} className="pl-[16px]" radius={4} src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="user image" width={140} height={130} />
+     <Image style={{borderRadius:'20px'}} className="pl-[16px]" radius={4} src={user.profile} alt="user image" width={140} height={130} />
       <h4 className="pl-[16px] font-bold my-[10px]">PORTFOLIO</h4>
-      <p className="text-gray  pl-[16px]">Samira Abdi</p>
+      <p className="text-gray  pl-[16px]">{user.name}</p>
       <Navbar.Section grow mt="xl">
         {links}
         {socialMedia}
