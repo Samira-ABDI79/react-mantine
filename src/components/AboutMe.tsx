@@ -12,10 +12,30 @@ const AboutMe = ({}: Props): ReactElement => {
       }
   const technicalSkills: Skill[] = [
    {value:"100%",title: 'HTML'},
+
    {value:"100%",title: 'CSS'},
+
     {value:"60%",title:'JavaScript'},
+   {value:"80%",title: 'Git'},
+   {value:"70%",title: 'Npm'},
+
+
    {value:"80%",title: 'React'},
+   {value:"90%",title: 'Tailwind'},
+   {value:"40%",title: 'Mantine'},
+   {value:"80%",title: 'Material UI'},
+
+
+
     {value:"1%",title:'Sass'},
+    {value:"20%",title:'Vite'},
+    {value:"1%",title:'Testing'},
+    {value:"20%",title:'Next.js'},
+    {value:"60%",title:'TypeScript'},
+
+
+
+
 
   ];
 

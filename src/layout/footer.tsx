@@ -1,5 +1,6 @@
-import { createStyles, Container, Group, rem } from '@mantine/core';
-import { IconBrandInstagram, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
+import { createStyles, Group, rem } from '@mantine/core';
+import {  IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = createStyles((theme) => ({
@@ -37,14 +38,17 @@ export function FooterSocial() {
       
       <p>Samira abdi</p>
         <Group spacing={0} className={classes.links} position="right" noWrap>
-         
-            <IconBrandGithub size="1.7rem" className=" hover:text-gray" stroke={1.5} />
+         <Link to="https://github.com/Samira-ABDI79" >
+         <IconBrandGithub size="1.7rem" className=" hover:text-gray" stroke={1.5} />
+         </Link>
+            
       
-       
-            <IconBrandLinkedin size="1.7rem" className=" hover:text-gray" stroke={1.5} />
+       <Link to="https://www.linkedin.com/in/samira-abdi-"> <IconBrandLinkedin size="1.7rem" className=" hover:text-gray" stroke={1.5} />
+       </Link>
+           
      
   
-            <IconBrandInstagram size="1.7rem" className=" hover:text-gray" stroke={1.5} />
+           
    
         </Group>
      
